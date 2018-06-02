@@ -28,12 +28,12 @@ describe('LoginComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-    
+
     it('userForm invalid when empty', () => {
         expect(component.userForm.valid).toBeFalsy();
     });
 
-    it('email field validity', () => {
+    it('username field validity', () => {
         const username = component.userForm.controls['username'];
         expect(username.valid).toBeFalsy();
     });
