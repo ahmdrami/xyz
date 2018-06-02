@@ -6,12 +6,13 @@ import { delay } from 'rxjs/operators';
 @Injectable()
 export class ChartsService {
 
+  apiUrl = '/api/';
   constructor(
     private http: HttpClient
   ) { }
 
   getData(endpoint: string): Observable<any> {
-    return this.http.get(`/api/${endpoint}`)
+    return this.http.get(`${this.apiUrl}${endpoint}`)
       .pipe(
         delay(2000)
       );

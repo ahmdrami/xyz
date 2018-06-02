@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './core/auth.guard';
 import { OverviewComponent } from './pages/overview/overview.component';
+import { BlankComponent } from './pages/blank/blank.component';
 
 const routes: Routes = [
     {
@@ -17,7 +18,8 @@ const routes: Routes = [
             { path: 'post-list', loadChildren: './pages/img-list/img-list.module#ImgListModule'}
         ]
     },
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
+    { path: '**', component: BlankComponent}
 ];
 
 @NgModule({

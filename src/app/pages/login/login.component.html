@@ -18,7 +18,7 @@
                         </div>
                         
                         <div class="field">
-                            <button type="submit" class="button is-primary" [ngClass]=" isLoading ? 'is-loading' : '' ">Login</button>
+                            <button type="submit" class="button is-primary" [disabled]="!userForm.valid" [ngClass]=" isLoading ? 'is-loading' : '' ">Login</button>
                         </div>
                     </form>
                     

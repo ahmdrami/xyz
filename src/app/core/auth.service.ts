@@ -11,7 +11,8 @@ export class AuthService {
     userEndpoints = '/api/users';
     storageId = 'currentUser';
     loginUrl = '/login';
-    isAuth: boolean;
+    isAuth: User;
+
     constructor(private http: HttpClient, private router: Router) {}
 
     login(username: string, password: string): Observable<any> {
@@ -19,6 +20,7 @@ export class AuthService {
     }
 
     storeToken(username: string, token: string): void {
+        // Token is stored for the current session only
         sessionStorage.setItem(
             this.storageId,
             JSON.stringify({
@@ -29,11 +31,12 @@ export class AuthService {
         this.navigateRoute('/');
     }
 
-    getAuthState(): boolean {
+    getAuthState(): User {
         return this.isAuth;
     }
+
     checkAuth(): boolean {
-        this.isAuth = (sessionStorage.getItem(this.storageId)) ? true : false;
+        this.isAuth = JSON.parse(sessionStorage.getItem(this.storageId));
         if (this.isAuth) {
             return true;
         }

@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         if (this.authSvc.getAuthState) {
-            
             this.router.navigate(['']);
         }
         this.buildForm();
@@ -32,12 +31,12 @@ export class LoginComponent implements OnInit {
         this.authSvc.login(username, password).subscribe(
             (resp: User[]) => {
                 if (resp.length > 0) {
-                    resp.map(user => token = user.token);
+                    resp.map(user => (token = user.token));
                     this.authSvc.storeToken(username, token);
                 }
-                
-                // JSON server does not return an error when username and password is incorrect
-                // Have to enable the error within the success call over error
+
+                // Mock server does not return an error when a user does not exist or incorrect credentials
+                // Have to return a boolean if there is an error
                 this.isError = true;
                 this.isLoading = false;
             },
@@ -46,13 +45,15 @@ export class LoginComponent implements OnInit {
     }
     buildForm(): void {
         this.userForm = this.fb.group({
-            username: ['', [Validators.required, Validators.email]],
+            username: ['', [Validators.required]],
             password: [
                 '',
-                [Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(6), Validators.maxLength(25)]
+                [
+                    Validators.required,
+                    Validators.minLength(5),
+                    Validators.maxLength(25)
+                ]
             ]
         });
-        // this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
-        // this.onValueChanged(); // reset validation messages
     }
 }

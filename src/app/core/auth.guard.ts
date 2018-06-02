@@ -10,6 +10,7 @@ export class AuthGuard implements CanActivate {
     constructor(private authSvc: AuthService, private router: Router) {}
     
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        // If authorised return to the visited page otherwise redirect to the login screen
         return this.authSvc.checkAuth();
     }
 }

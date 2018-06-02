@@ -9,12 +9,14 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BlankComponent } from './pages/blank/blank.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     OverviewComponent,
+    BlankComponent,
   ],
   imports: [
     BrowserModule,
