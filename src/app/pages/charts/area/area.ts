@@ -8,18 +8,6 @@ export const area_options = {
     subtitle: {
         text: 'Source: Wikipedia.org'
     },
-    // xAxis: {
-    //     categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
-    //     tickmarkPlacement: 'on',
-    //     title: {
-    //         enabled: false
-    //     }
-    // },
-    // yAxis: {
-    //     title: {
-    //         text: 'Percent'
-    //     }
-    // },
     plotOptions: {
         area: {
             stacking: 'percent',
