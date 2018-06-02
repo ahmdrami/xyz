@@ -1,0 +1,11 @@
+<app-banner></app-banner>
+
+<main class="container" *ngIf="!loading; else spinner">
+
+  <div [chart]="area"></div>
+</main>
+
+<ng-template #spinner>
+  <app-spinner ></app-spinner>
+</ng-template>
+

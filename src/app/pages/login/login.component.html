@@ -1,0 +1,30 @@
+<section class="hero is-light is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <form [formGroup]="userForm" (ngSubmit)="login()">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" formControlName="username" type="text" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" formControlName="password" type="password" placeholder="Password">
+                            </div>
+                            <p *ngIf="isError" class="help is-danger">Incorrect email or password!</p>
+                        </div>
+                        
+                        <div class="field">
+                            <button type="submit" class="button is-primary" [ngClass]=" isLoading ? 'is-loading' : '' ">Login</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
